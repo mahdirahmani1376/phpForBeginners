@@ -2,9 +2,8 @@
 
 require 'Validator.php';
 
-$heading = 'Create Note';
-
-$config = require('config.php');
+$config = require base_path('config.php');
+$errors = [];
 $db = new Database($config['database']);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -22,4 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 }
-require "views/note-create.view.php";
+view("notes/create.view.php", [
+    'heading' => 'Create Note',
+    'errors' => $errors
+]);
