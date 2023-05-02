@@ -42,8 +42,8 @@ class Router
             if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
                 return require base_path($route['controller']);
             }
-            $this->abort();
         }
+        $this->abort();
     }
 
     protected function abort($code = 404)
